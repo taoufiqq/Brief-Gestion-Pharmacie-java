@@ -1,22 +1,40 @@
 package com.GestionPharmacie.app;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 import com.GestionPharmacie.app.models.Client;
 import com.GestionPharmacie.app.models.Medicament;
+import com.GestionPharmacie.app.models.Person;
 import com.GestionPharmacie.app.models.Pharmacien;
 
-import gestion_etudiant.model.Etudiant;
+
 
 public class Main {
+	public static Comparator<Person> sortClient = new Comparator<Person>() {
+
+		public int compare(Person p1, Person p2) {
+			String customerName1 = p1.getFirstName().toUpperCase();
+			String customerName2 = p2.getFirstName().toUpperCase();
+
+			// ascending order
+			return customerName1.compareTo(customerName2);
+
+		}
+	};
 
 	public static void main(String[] args) {
+		
+		
+		
+	
 		// TODO Auto-generated method stub
-	       
-		   ArrayList<Pharmacien> listPharmaciens = new ArrayList<Pharmacien>();
-		   ArrayList<Pharmacien> listClients = new ArrayList<Pharmacien>();
+	        
+		   ArrayList<Person> listPharmaciens =new ArrayList<Person>();
+		   ArrayList<Person> listClients = new ArrayList<Person>();
 		   ArrayList<Medicament> listMedicaments = new ArrayList<Medicament>();
 		   
 		   boolean var = true;
@@ -142,7 +160,7 @@ public class Main {
 	                        System.out.println("-----------------------------------------------------------------------------");
 	                    	
 	                    	
-	                    	for(Pharmacien pharmacien2 : listPharmaciens){
+	                    	for(Person pharmacien2 : listPharmaciens){
 	                    		 System.out.format("%10s %15s %15s %15s %15s",
 	                    				 pharmacien2.getId(),pharmacien2.getLastName(),pharmacien2.getFirstName(),pharmacien2.getPhone(),pharmacien2.getEmail());
 	                    	        System.out.println();
@@ -153,7 +171,7 @@ public class Main {
                         	System.out.println("Rechercher un Pharmacien");
     						String RechercherPharmacien = scanner.next();
 
-    						for (Pharmacien p1 : listPharmaciens) {
+    						for (Person p1 : listPharmaciens) {
     							if (p1.getFirstName().equals(RechercherPharmacien)) {
     								System.out.println(p1.toString());
     							}
@@ -292,12 +310,11 @@ public class Main {
 							
 							break;
                         case 6:
-                        	System.out.println("Vous avez Quitter le Menu Medicament");
+                            System.out.println("Vous avez Quitter le Menu Medicament");
                         	
                         	var2=false;
                         	var=true;
-	
-	                        break;
+                        	break;
 
 						default:
 							System.out.println("Choix invalid!!!!!!!!!!!");
@@ -314,7 +331,8 @@ public class Main {
 				        System.out.println("2- Supprimer Client");
 				        System.out.println("3- Modifier Client");
 				        System.out.println("4- Afficher Client ");
-				        System.out.println("5- Quitter le Menu Client");
+				        System.out.println("5- Trier les clients");
+				        System.out.println("6- Quitter le Menu Client");
 				        
 				        System.out.println("Choix :");
 				        
@@ -424,7 +442,7 @@ public class Main {
 	                        System.out.println("-----------------------------------------------------------------------------");
 	                    	
 	                    	
-	                    	for(Pharmacien client2 : listClients){
+	                    	for(Person client2 : listClients){
 	                    		 System.out.format("%10s %15s %15s %15s %15s ",
 	                    				 client2.getId(),client2.getLastName(),client2.getFirstName(),client2.getPhone(),client2.getEmail());
 	                    	        System.out.println();
@@ -432,12 +450,29 @@ public class Main {
 	                    	System.out.println("-----------------------------------------------------------------------------");
 							break;
                         case 5:
-                        	System.out.println("Vous avez Quitter le Menu Client");
+                        	
+                        	Collections.sort(listClients, sortClient);
+    						System.out.println(
+    								"-----------------------------------------------------------------------------");
+    						System.out.printf("%10s %15s %15s %15s %15s ","ID", "NOM","PRENOM", "TELEPHONE", "EMAIL");
+    						System.out.println();
+    						System.out.println(
+    								"-----------------------------------------------------------------------------");
+    						for (int i = 0; i < listClients.size(); i++) {
+    							System.out.format("%10s %15s %15s %15s %15s ",listClients.get(i).getId(),
+    									listClients.get(i).getLastName(), listClients.get(i).getFirstName(),
+    									listClients.get(i).getPhone(), listClients.get(i).getEmail());
+    							System.out.println();
+    						}
+    						System.out.println(
+    								"-----------------------------------------------------------------------------");
+	                        break;
+                        case 6:
+                            System.out.println("Vous avez Quitter le Menu Client");
                         	
                         	var1=false;
                         	var=true;
-	
-	                        break;
+                        	break;
 
 						default:
 							System.out.println("Choix invalid!!!!!!!!!!!");

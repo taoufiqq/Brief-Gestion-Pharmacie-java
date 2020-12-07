@@ -4,81 +4,31 @@ import java.util.ArrayList;
 
 import com.company.Person;
 
-public class Pharmacien{
+public class Pharmacien extends Person{
 
-	    private int id;
-	    private String lastName;
-	    private String firstName;
-	    private String phone;
-	    private String email;
-	    
-	
-	
-	
-		public int getId() {
-			return id;
-		}
-
-		public void setId(int id) {
-			this.id = id;
-		}
-
-		public String getLastName() {
-			return lastName;
-		}
-
-        public void setLastName(String lastName) {
-			this.lastName = lastName;
-		}
-
-		public String getFirstName() {
-			return firstName;
-		}
-
-		public void setFirstName(String firstName) {
-			this.firstName = firstName;
-		}
-
-		public String getPhone() {
-			return phone;
-		}
-
-		public void setPhone(String phone) {
-			this.phone = phone;
-		}
-
-		public String getEmail() {
-			return email;
-		}
-
-		public void setEmail(String email) {
-			this.email = email;
-		}
+	 
+		public Pharmacien() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 
-        public Pharmacien() {
-        	
-        }
+	public Pharmacien(int id, String lastName, String firstName, String phone, String email) {
+		super(id, lastName, firstName, phone, email);
+		// TODO Auto-generated constructor stub
+	}
 
-		public Pharmacien(int id, String lastName, String firstName, String phone, String email) {
-
-			this.id = id;
-			this.lastName = lastName;
-			this.firstName = firstName;
-			this.phone = phone;
-			this.email = email;
-		}
 
 		@Override
 		public String toString() {
-			return "id :"+ id +"\nlastName : "+ lastName +"\nFirstName : "+ firstName +"\nPhone : "+ phone+"\nEmail : "+ email;
+			return super.toString();
 		}
 		
 	
-		public String addPharmacien(ArrayList<Pharmacien> listPharmacien, Pharmacien pharamcien) {
+		public String addPharmacien(ArrayList<Person> listPerson, Pharmacien pharamcien) {
 			try {
-				listPharmacien.add(pharamcien);
-				return "Pharmacien Added Successfully";
+				return super.addPerson(listPerson, pharamcien);
+				
 				
 			}catch(Exception ex) {
 				return ex.getMessage();
@@ -87,11 +37,10 @@ public class Pharmacien{
 				
 			}
 		
-		public String editPharmacien(ArrayList<Pharmacien> listPharmacien, Pharmacien pharamcien, int index) {
+		public String editPharmacien(ArrayList<Person> listPerson, Pharmacien pharamcien, int index) {
 			try {
 				
-				listPharmacien.set(index, pharamcien);
-				return "pharamcien Edited Successfully!";
+				return super.editPerson(listPerson, pharamcien, index);
 				
 			}catch(Exception ex) {
 				return ex.getMessage();
@@ -100,22 +49,20 @@ public class Pharmacien{
 				
 			}
 
-		   public String deletePharmacien(ArrayList<Pharmacien> listPharmacien, int index){
+		   public String deletePharmacien(ArrayList<Person> listPerson, int index){
 		        try {
-		        	listPharmacien.remove(index);
-		            return "pharamcien Deleted Successfully!";
+		        	return super.deletePerson(listPerson, index);
+		            
 		        }catch (Exception ex){
 		            return ex.getMessage();
 		        }
 		    }
 
-		    public String affichePharmacien(ArrayList<Pharmacien> listPharmacien){
+		    public String affichePharmacien(ArrayList<Person> listPerson){
 		        try{
-		            String pr = "";
-		            for(Pharmacien pharamcien : listPharmacien){
-		                pr += pharamcien.toString();
-		            }
-		            return pr;
+		           
+		           return super.affichePerson(listPerson);
+		           
 		        }catch(Exception ex){
 		            return ex.getMessage();
 		        }

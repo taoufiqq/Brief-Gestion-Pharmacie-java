@@ -2,7 +2,7 @@ package com.GestionPharmacie.app.models;
 
 import java.util.ArrayList;
 
-public class Client extends Pharmacien{
+public class Client extends Person{
 	private int badge;
 	
 	public int getBadge() {
@@ -13,25 +13,27 @@ public class Client extends Pharmacien{
 		this.badge = badge;
 	}
 
-    public Client(){
 
+    public Client() {
+    	
     }
-    
-	public Client(int id, String lastName, String firstName, String phone, String email, int badge) {
+
+
+    public Client(int id, String lastName, String firstName, String phone, String email, int badge) {
 		super(id, lastName, firstName, phone, email);
 		this.badge=badge;
 		// TODO Auto-generated constructor stub
 	}
 
-    @Override
+	@Override
     public String toString() {
     	return super.toString()+"\nBadge"+badge;
     }
     
   
-    public String addClient(ArrayList<Pharmacien> listPharmacien, Client client) {
+    public String addClient(ArrayList<Person> listPerson, Client client) {
 		try {
-			return super.addPharmacien(listPharmacien, client);
+			return super.addPerson(listPerson, client);
 			
 		}catch(Exception ex) {
 			return ex.getMessage();
@@ -40,10 +42,10 @@ public class Client extends Pharmacien{
 			
 		}
 	
-	public String editClient(ArrayList<Pharmacien> listPharmacien, Client client, int index) {
+	public String editClient(ArrayList<Person> listPerson, Client client, int index) {
 		try {
 			
-			return super.editPharmacien(listPharmacien, client, index);
+			return super.editPerson(listPerson, client, index);
 			 
 		}catch(Exception ex) {
 			return ex.getMessage();
@@ -52,19 +54,19 @@ public class Client extends Pharmacien{
 			
 		}
 
-	   public String deleteClient(ArrayList<Pharmacien> listPharmacien, int index){
+	   public String deleteClient(ArrayList<Person> listPerson, int index){
 	        try {
-	        	return super.deletePharmacien(listPharmacien, index);
+	        	return super.deletePerson(listPerson, index);
 	           
 	        }catch (Exception ex){
 	            return ex.getMessage();
 	        }
 	    }
 
-	    public String afficheClient(ArrayList<Pharmacien> listPharmacien){
+	    public String afficheClient(ArrayList<Person> listPerson){
 	        try{
 	            
-	            return super.affichePharmacien(listPharmacien);
+	            return super.affichePerson(listPerson);
 	        }catch(Exception ex){
 	            return ex.getMessage();
 	        }

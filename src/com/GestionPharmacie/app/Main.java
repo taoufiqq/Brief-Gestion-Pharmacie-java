@@ -470,7 +470,7 @@ public class Main {
                         case 6:
                             System.out.println("Vous avez Quitter le Menu Client");
                         	
-                        	var1=false;
+                        	var3=false;
                         	var=true;
                         	break;
 

@@ -2,8 +2,6 @@ package com.GestionPharmacie.app.models;
 
 import java.util.ArrayList;
 
-import com.company.Person;
-
 public class Pharmacien extends Person{
 
 	 

@@ -25,10 +25,10 @@ public class Client extends Person{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-    public String toString() {
-    	return super.toString()+"\nBadge"+badge;
-    }
+//	@Override
+//    public String toString() {
+//    	return super.toString()+"\nBadge"+badge;
+//    }
     
   
     public String addClient(ArrayList<Person> listPerson, Client client) {
@@ -42,6 +42,11 @@ public class Client extends Person{
 			
 		}
 	
+	@Override
+	public String toString() {
+		return super.toString() + "\nBadge :" + badge ;
+	}
+
 	public String editClient(ArrayList<Person> listPerson, Client client, int index) {
 		try {
 			

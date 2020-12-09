@@ -3,7 +3,6 @@ package com.GestionPharmacie.app;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Scanner;
 
 import com.GestionPharmacie.app.models.Client;
@@ -436,16 +435,17 @@ public class Main {
 	                      	Client client1 = new Client();
 	                      	client1.afficheClient(listClients);
 	                    	
-	                    	System.out.println("-----------------------------------------------------------------------------");
-	                    	System.out.printf("%10s %15s %15s %15s %15s ", "ID", "NOM","PRENOM", "TELEPHONE", "EMAIL");
-	                        System.out.println();
-	                        System.out.println("-----------------------------------------------------------------------------");
+//	                    	System.out.println("-----------------------------------------------------------------------------");
+//	                    	System.out.printf("%10s %15s %15s %15s %15s %15s ", "ID", "NOM","PRENOM", "TELEPHONE", "EMAIL","BADGE");
+//	                        System.out.println();
+//	                        System.out.println("-----------------------------------------------------------------------------");
 	                    	
+	                        
 	                    	
 	                    	for(Person client2 : listClients){
-	                    		 System.out.format("%10s %15s %15s %15s %15s ",
-	                    				 client2.getId(),client2.getLastName(),client2.getFirstName(),client2.getPhone(),client2.getEmail());
-	                    	        System.out.println();
+//	                    		 System.out.format("%10s %15s %15s %15s %15s %15s ",
+//	                    				 client2.getId(),client2.getLastName(),client2.getFirstName(),client2.getPhone(),client2.getEmail(),client2.getBadge());
+	                    	        System.out.println(client2.toString());
 	                    	}
 	                    	System.out.println("-----------------------------------------------------------------------------");
 							break;
